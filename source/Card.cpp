@@ -5,6 +5,6 @@
 using namespace std;
 
 Card::Card (char s, string v)
-  : suit(s), val(v)
+  : suit(s), value(v)
 {};
 

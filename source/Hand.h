@@ -9,11 +9,16 @@ using namespace std;
 class Hand
 {
  public:
+
   Hand(vector<Card> Cards);
   Hand();
+  
   void addCard(Card C);
   void show();
+  int value();
+  
   vector<Card> Cards;
+
  protected:
  private:
 };

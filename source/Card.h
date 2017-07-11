@@ -1,6 +1,7 @@
 #ifndef CARD_H
 #define CARD_H
 
+#include <string>
 using namespace std;
 
 class Card
@@ -8,7 +9,7 @@ class Card
  public:
   Card(char s, string v);  
   char suit;
-  string val;
+  string value;
  protected:
  private:
 };

@@ -2,7 +2,10 @@
 // Andrew D. McGuire 2017
 // amcguire227@gmail.com
 // Hand class
+
 #include <iostream>
+#include <string>
+#include <cstdlib>
 #include "Hand.h"
 #include "Card.h"
 #include <vector>
@@ -20,10 +23,42 @@ void Hand::addCard (Card C) {
 
 void Hand::show () {
   for (int i=0; i<Cards.size(); ++i)
-    cout << Cards[i].val << Cards[i].suit
+    cout << Cards[i].value << Cards[i].suit
 	 << endl;
 };
 
+int Hand::value () {
+  
+  int total;
+  int ace_count;
 
+  
+  for (int i=0; i<Cards.size(); ++i) {
 
+    // loop through all cards in the hand
+    if (Cards[i].value == "J" or
+	Cards[i].value == "Q" or
+	Cards[i].value == "K") {
+
+      total += 10; }
+    else if (Cards[i].value == "A") {
+      ace_count += 1;
+    }
+    else {
+      total += std::atoi(Cards[i].value.c_str());
+    }
+  };
+
+  // handle the aces
+  for (int i=0; i<ace_count; ++i) {
+    if (total < 11) {
+      total += 11;
+    }
+    else {
+      total += 1;
+      }
+  };
+
+  return total;  
+};
 
