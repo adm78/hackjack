@@ -3,9 +3,9 @@
 // amcguire227@gmail.com
 // Player class
 
-#include "Player.h"
-#include "Hand.h"
-#include "Card.h"
+#include "../include/Player.h"
+#include "../include/Hand.h"
+#include "../include/Card.h"
 
 
 Player::Player (string n, double m)
