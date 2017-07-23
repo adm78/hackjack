@@ -6,8 +6,8 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-#include "../include/Hand.h"
-#include "../include/Card.h"
+#include "Hand.h"
+#include "Card.h"
 #include <vector>
 using namespace std;
 

@@ -1,20 +1,21 @@
 OBJS = hackjack.o Player.o Hand.o Card.o
+INC =../include
 CC = g++
 DEBUG = -g
-CFLAGS = -Wall -I/home/andrew/projects/cpp/hackjack/include -c $(DEBUG)
-LFLAGS = -Wall $(DEBUG) 
+CXXFLAGS += -Wall -I../include -c
+LFLAGS =-Wall $(DEBUG)
 
 hackjack : $(OBJS)
-	$(CC) $(LFLAGS) $(OBJS) -o ../hackjack
+	$(CC) $(LFLAGS) $(OBJS) $(INCS) -o ../hackjack
 	
-Player.o : Player.cpp  Player.h Hand.h Card.h
-	$(CC) $(CFLAGS) Player.cpp
+Player.o : $(INC)/Player.h Player.cpp $(INC)/Hand.h $(INC)/Card.h
+	$(CC) $(CXXFLAGS) Player.cpp
 	
-Hand.o : ../include/Hand.h Hand.cpp ../include/Card.h
-	$(CC) $(CFLAGS) Hand.cpp
+Hand.o : $(INC)/Hand.h Hand.cpp $(INC)/Card.h
+	$(CC) $(CXXFLAGS) Hand.cpp
 	
-Card.o : ../include/Card.h Card.cpp
-	$(CC) $(CFLAGS) Card.cpp
+Card.o : $(INC)/Card.h Card.cpp
+	$(CC) $(CXXFLAGS) Card.cpp
 	
 clean:
 	\rm *.o *~ ../hackjack
