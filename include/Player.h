@@ -9,25 +9,44 @@
 
 using namespace std;
 
-class Player
-{
+class Person {
+ /* Abastract class */
+ public:
+  
+  Person(string name);
+  void addCard(Card C);
+  void addHand(Hand H);
+  
+  string name;
+  vector<Hand> hands;
+    
+ private:
+  int active_hand;
+ protected:
+};
+
+class Player: public Person {
  public:
 
   // constructor
   Player(string name, double money);
 
   // methods
-  void addHand(Hand H);
-  void addCard(Card C);
-  
-  // attributes
-  vector<Hand> hands;
-  string name;
+
   double money;
-  int active_hand;
+  //int active_hand;
   
  protected:
  private:
+};
+
+class Dealer: public Person {
+ public:
+  //constructor
+  Dealer();
+
+ private:
+ protected:
 };
 
 #endif // PLAYER_H

@@ -32,6 +32,10 @@ int main() {
   //test the player class
   Player p1("Andrew",10.00);
   cout << "p1's name is: " << p1.name << endl;
+
+  // test the Dealer
+  Dealer Dealer;
+  cout << "Dealer's name is: " << Dealer.name << endl;
   
   return 0;
 }

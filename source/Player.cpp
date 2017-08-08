@@ -7,13 +7,24 @@
 #include "Hand.h"
 #include "Card.h"
 
-
-Player::Player (string n, double m)
-  : name(n), money(m), active_hand(0)
+Person::Person (string n)
+  // the base class constructor
+  : name(n), active_hand(0)
 {};
 
-void Player::addHand (Hand H) {};
+void Person::addHand (Hand H) {};
 
-void Player::addCard (Card C) {};
+void Person::addCard (Card C) {};
+
+Player::Player (string n, double m)
+  // the Player class constructor
+  : Person(n), money(m)
+{};
+
+Dealer::Dealer ()
+  // the dealer class constructor
+  : Person("dealer")
+{};
+
 
 
