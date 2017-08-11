@@ -15,15 +15,18 @@ int main() {
   cout << "     Welcome to hackjack     " << endl;
   cout << "-----------------------------" << endl;
 
+  //set-up iostream to print bools as true/false
+  std::cout << std::boolalpha;
+  
   //test the card class
-  Card mycard('h',"Q");
-  cout << "mycard.suit = " << mycard.suit <<endl;
-  cout << "mycard.value = " << mycard.value <<endl;
+  Card myCard('h',"Q");
+  cout << "myCard.suit = " << myCard.suit <<endl;
+  cout << "myCard.value = " << myCard.value <<endl;
 
   //test the hand class
-  vector<Card> mycards;
-  mycards.push_back(mycard);
-  Hand myHand(mycards);
+  vector<Card> myCards;
+  myCards.push_back(myCard);
+  Hand myHand(myCards);
   myHand.show();
   Card my_other_card('d', "9");
   myHand.addCard(my_other_card);
@@ -36,6 +39,14 @@ int main() {
   // test the Dealer
   Dealer Dealer;
   cout << "Dealer's name is: " << Dealer.name << endl;
-  
+
+  //test hand and card addition for player
+  p1.addHand(myHand);
+  p1.showHand();
+  p1.showHandValue();
+  cout << "Bust? " << p1.isBust() << endl;
+  p1.addCard(myCard);
+  p1.showHandValue();
+  cout << "Bust? " << p1.isBust() << endl;
   return 0;
 }

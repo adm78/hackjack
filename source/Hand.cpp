@@ -24,13 +24,14 @@ void Hand::addCard (Card C) {
 void Hand::show () {
   for (int i=0; i<Cards.size(); ++i)
     cout << Cards[i].value << Cards[i].suit
-	 << endl;
+	 << " ";
+  cout << endl;
 };
 
 int Hand::value () {
   
-  int total;
-  int ace_count;
+  int total = 0;
+  int ace_count = 0;
 
   
   for (int i=0; i<Cards.size(); ++i) {
@@ -61,4 +62,6 @@ int Hand::value () {
 
   return total;  
 };
+
+
 

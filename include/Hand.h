@@ -16,7 +16,7 @@ class Hand
   void addCard(Card C);
   void show();
   int value();
-  
+  bool isBust();
   vector<Card> Cards;
 
  protected:

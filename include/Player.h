@@ -16,9 +16,13 @@ class Person {
   Person(string name);
   void addCard(Card C);
   void addHand(Hand H);
-  
+  void showHand();
+  void clearHands();
+  void showHandValue();
+  bool isBust();
+
   string name;
-  vector<Hand> hands;
+  vector<Hand> Hands;
     
  private:
   int active_hand;
@@ -32,12 +36,16 @@ class Player: public Person {
   Player(string name, double money);
 
   // methods
-
-  double money;
+  void Bet(float m);
+  void nextHand();
+  void Collect(float m);
+  
   //int active_hand;
   
  protected:
  private:
+    double money;
+    vector <float> bets;
 };
 
 class Dealer: public Person {
