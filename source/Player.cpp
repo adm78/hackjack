@@ -7,6 +7,8 @@
 #include "Hand.h"
 #include "Card.h"
 #include <iostream>
+#include <vector>
+
 using namespace std;
 
 Person::Person (string n)
@@ -35,6 +37,20 @@ void Person::clearHands() {
   Hands.clear();
 };
 
+void Person::nextHand() {
+  //upates the active_hand
+  if (active_hand >= Hands.size()-1) {
+    active_hand = 0;
+  }
+  else {
+    active_hand = active_hand + 1;
+  }
+};
+
+int Person::getActiveHand() {
+  return active_hand;
+}
+
 bool Person::isBust() {
   if (Hands[active_hand].value() > 21) {
     return true;
@@ -48,6 +64,25 @@ Player::Player (string n, double m)
   // the Player class constructor
   : Person(n), money(m)
 {};
+
+void Player::Bet(float m) {
+  // add to the  bet associated with the
+  // active hand. If not bet exists for
+  // for the active hand then we add one.
+  int ah = getActiveHand();
+  if (bets.size() >  ah) {
+    bets[ah] += m;
+  }
+  else {
+    bets.push_back(m);
+  }
+};
+
+void Player::showBets () {
+  for (int i=0; i<bets.size(); ++i)
+    cout << bets[i] << " ";
+  cout << endl;
+};
 
 Dealer::Dealer ()
   // the dealer class constructor

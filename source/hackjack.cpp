@@ -33,20 +33,28 @@ int main() {
   myHand.show();
 
   //test the player class
-  Player p1("Andrew",10.00);
-  cout << "p1's name is: " << p1.name << endl;
+  Player Andrew("Andrew",10.00);
+  cout << "Andrew's name is: " << Andrew.name << endl;
 
   // test the Dealer
   Dealer Dealer;
   cout << "Dealer's name is: " << Dealer.name << endl;
 
   //test hand and card addition for player
-  p1.addHand(myHand);
-  p1.showHand();
-  p1.showHandValue();
-  cout << "Bust? " << p1.isBust() << endl;
-  p1.addCard(myCard);
-  p1.showHandValue();
-  cout << "Bust? " << p1.isBust() << endl;
+  Andrew.addHand(myHand);
+  Andrew.showHand();
+  Andrew.showHandValue();
+  cout << "Bust? " << Andrew.isBust() << endl;
+  Andrew.addCard(myCard);
+  Andrew.showHandValue();
+  cout << "Bust? " << Andrew.isBust() << endl;
+
+  //testing player specific functionality
+  Andrew.Bet(5.0);
+  Andrew.showBets();
+  Andrew.Bet(6.0);
+  Andrew.showBets();
+
+  
   return 0;
 }

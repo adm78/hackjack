@@ -10,9 +10,10 @@
 using namespace std;
 
 class Person {
- /* Abastract class */
+ /* Abstract class */
  public:
-  
+
+  //methods
   Person(string name);
   void addCard(Card C);
   void addHand(Hand H);
@@ -20,7 +21,10 @@ class Person {
   void clearHands();
   void showHandValue();
   bool isBust();
+  void nextHand();
+  int getActiveHand();
 
+  //attributes
   string name;
   vector<Hand> Hands;
     
@@ -37,9 +41,8 @@ class Player: public Person {
 
   // methods
   void Bet(float m);
-  void nextHand();
   void Collect(float m);
-  
+  void showBets();
   //int active_hand;
   
  protected:
@@ -52,7 +55,8 @@ class Dealer: public Person {
  public:
   //constructor
   Dealer();
-
+  void nextHand();
+  
  private:
  protected:
 };
