@@ -7,6 +7,7 @@
 #include "Card.h"
 #include "Hand.h"
 #include "Player.h"
+#include "Deck.h"
 
 using namespace std;
 
@@ -54,6 +55,11 @@ int main() {
   Andrew.showBets();
   Andrew.Bet(6.0);
   Andrew.showBets();
+
+  //testing the deck class
+  Deck deck(2);
+  deck.show();
+  
 
   
   return 0;

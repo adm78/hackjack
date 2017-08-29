@@ -1,9 +1,9 @@
 SRC = ./source
-OBJS = $(SRC)/hackjack.o $(SRC)/Player.o $(SRC)/Hand.o $(SRC)/Card.o
+OBJS = $(SRC)/hackjack.o $(SRC)/Player.o $(SRC)/Hand.o $(SRC)/Deck.o $(SRC)/Card.o
 INC =./include
 CC = g++
 DEBUG = -g
-CXXFLAGS += -Wall -I./include
+CXXFLAGS += -Wall -I./include -std=c++11
 LFLAGS =-Wall $(DEBUG)
 
 hackjack : $(OBJS)
@@ -14,6 +14,9 @@ Player.o : $(INC)/Player.h $(SRC)/Player.cpp $(INC)/Hand.h $(INC)/Card.h
 	
 Hand.o : $(INC)/Hand.h $(SRC)/Hand.cpp $(INC)/Card.h
 	$(CC) $(CXXFLAGS) $(SRC)/Hand.cpp
+	
+Deck.o : $(INC)/Deck.h $(SRC)/Deck.cpp $(INC)/Card.h
+	$(CC) $(CXXFLAGS) $(SRC)/Deck.cpp
 	
 Card.o : $(INC)/Card.h $(SRC)/Card.cpp
 	$(CC) $(CXXFLAGS) $(SRC)/Card.cpp
