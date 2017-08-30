@@ -59,7 +59,9 @@ int main() {
   //testing the deck class
   Deck deck(2);
   deck.show();
-  
+  deck.shuffle();
+  deck.show();  
+    
 
   
   return 0;

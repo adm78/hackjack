@@ -5,13 +5,15 @@
 
 #include <iostream>
 #include <string>
+#include <algorithm>
+#include <random>
 #include <vector>
 #include "Card.h"
 #include "Deck.h"
 
 using namespace std;
 
-Deck::Deck (int s) {
+Deck::Deck (int s, double cut) {
   vector<string> values = {"2","3","4",
 			   "5","6","7",
 			   "8","9","10",
@@ -24,12 +26,18 @@ Deck::Deck (int s) {
       };
     };
   };
+  this->cut(cut);
 };
 
 
-void Deck::shuffle () {};
+void Deck::shuffle () {
+  auto rng = std::default_random_engine {};
+  std::shuffle(std::begin(cards), std::end(cards), rng);
+};
 
-void Deck::cut(double frac) {};
+void Deck::cut(double frac) {
+  cards.erase(cards.begin() + cards.size()*frac, cards.end());
+};
 
 Card Deck::draw() {
   return Card('s',"A");
