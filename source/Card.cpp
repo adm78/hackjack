@@ -4,7 +4,12 @@
 #include "Card.h"
 using namespace std;
 
+Card::Card () {};
+
 Card::Card (char s, string v)
   : suit(s), value(v)
 {};
 
+void Card::show() {
+  cout << value << suit;
+};

@@ -7,7 +7,9 @@ using namespace std;
 class Card
 {
  public:
-  Card(char s, string v);  
+  Card();
+  Card(char s, string v);
+  void show();
   char suit;
   string value;
  protected:

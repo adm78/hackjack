@@ -61,8 +61,15 @@ int main() {
   deck.show();
   deck.shuffle();
   deck.show();  
-    
-
+  Card mytopcard = deck.draw();  
+  cout << "mytopcard = ";
+  mytopcard.show();
+  cout << endl;
+  Card mytopcard2 = deck.draw();  
+  cout << "mytopcard2 = ";
+  mytopcard2.show();
+  cout << endl;
+  deck.show();
   
   return 0;
 }

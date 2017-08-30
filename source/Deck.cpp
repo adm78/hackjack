@@ -40,7 +40,13 @@ void Deck::cut(double frac) {
 };
 
 Card Deck::draw() {
-  return Card('s',"A");
+  // if (cards.size() > 0) {
+  vector<Card> copied_cards(1); 
+  std::copy (cards.begin(), cards.begin() + 1, copied_cards.begin() );
+  cards.erase(cards.begin());
+  Card top_card = copied_cards.at(0);
+  return top_card;
+  // };
 };
 
 void Deck::show() {
