@@ -57,19 +57,22 @@ int main() {
   Andrew.showBets();
 
   //testing the deck class
-  Deck deck(2);
-  deck.show();
-  deck.shuffle();
-  deck.show();  
+  Deck deck(1,3.0/52.0);
   Card mytopcard = deck.draw();  
-  cout << "mytopcard = ";
-  mytopcard.show();
+  cout << "mytopcard = ", mytopcard.show();
   cout << endl;
+  cout << "deck = ", deck.show();
   Card mytopcard2 = deck.draw();  
-  cout << "mytopcard2 = ";
-  mytopcard2.show();
+  cout << "mytopcard2 = ", mytopcard2.show(); 
   cout << endl;
-  deck.show();
-  
+  cout << "deck = ", deck.show();
+  Card mytopcard3 = deck.draw();
+  cout << "mytopcard3 = ", mytopcard3.show();
+  cout << endl;
+  cout << "deck = ", deck.show();
+  Card mytopcard4 = deck.draw();
+  cout << "mytopcard4 = ", mytopcard4.show();
+  cout << endl;
+  cout << "deck = ", deck.show();
   return 0;
 }

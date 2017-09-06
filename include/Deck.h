@@ -16,17 +16,20 @@ class Deck {
  public:
 
   //methods
-  Deck(int s, double cut=0.25);
+  Deck(int s, double c=0.25);
   void shuffle();
   Card draw();
   void show();
   
   //members
   vector<Card> cards;
-
+  
  private:
   //methods 
   void cut(double frac);
+  void renew();
+  int init_size;
+  double cut_pos;
 };
 
 
