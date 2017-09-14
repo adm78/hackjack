@@ -8,6 +8,7 @@
 #include "Hand.h"
 #include "Player.h"
 #include "Deck.h"
+#include "Game.h"
 
 using namespace std;
 
@@ -40,7 +41,7 @@ int main() {
   // test the Dealer
   Dealer Dealer;
   cout << "Dealer's name is: " << Dealer.name << endl;
-
+  
   //test hand and card addition for player
   Andrew.addHand(myHand);
   Andrew.showHand();
@@ -74,5 +75,21 @@ int main() {
   cout << "mytopcard4 = ", mytopcard4.show();
   cout << endl;
   cout << "deck = ", deck.show();
+
+  // testing the game class
+  vector<Player> players;
+  Player p2("Alice",15.0);
+  Player p3("Bob",29.0);
+  players.push_back(Andrew);
+  players.push_back(p2);
+  players.push_back(p3);
+  Deck GameDeck(4);
+  Game GameTest(players,Dealer,GameDeck);
+  GameTest.show();
+
+
+
+
+  cout << "testing complete!" << endl;
   return 0;
 }

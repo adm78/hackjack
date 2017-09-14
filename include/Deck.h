@@ -16,7 +16,7 @@ class Deck {
  public:
 
   //methods
-  Deck(int s, double c=0.25);
+  Deck(int size, double cut=0.25);
   void shuffle();
   Card draw();
   void show();
