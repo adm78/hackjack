@@ -31,7 +31,9 @@ class Game {
   //methods
   Game(vector<Player> players, Dealer dealer, Deck deck);
   void show();
-
+  void deal();
+  void clearTable();
+  
   //members
   vector<Player> players;
   Dealer dealer;
@@ -39,6 +41,10 @@ class Game {
  private:
   Deck deck;
   Player* cp;
+};
+
+class ClassicBlackJack: public Game {
+
 };
 
 

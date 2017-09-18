@@ -26,12 +26,37 @@ Game::Game (vector<Player> p, Dealer d, Deck dc):
   players(p), dealer(d), deck(dc)
 {
   // main game constructor
-  cp = &players.front();  
+  clearTable();
+  cp = &players.front();
+  deal();
 };
 
 void Game::show () {
+  // rudimenrty print game state to screen
   cout << "Current players in the game:" << endl;
   for(std::vector<Player>::iterator it = players.begin(); it != players.end(); ++it) {
-    cout << (*it).name << endl;
-}
+    cout << (*it).name << " : ";
+    (*it).showHand();
+    cout << endl;
+  }
+  cout << "Dealer : ";
+  dealer.showHand();
+  cout << endl;
+};
+
+void Game::clearTable() {
+  // wipes all player and dealer hands
+  for(std::vector<Player>::iterator it = players.begin(); it != players.end(); ++it) {
+    (*it).clearHands();
+  }
+  dealer.clearHands();
+};
+
+void Game::deal () {
+  for(std::vector<Player>::iterator it = players.begin(); it != players.end(); ++it) {
+    (*it).addCard(deck.draw());
+    (*it).addCard(deck.draw());
+  }
+  dealer.addCard(deck.draw());
+  dealer.addCard(deck.draw());
 };

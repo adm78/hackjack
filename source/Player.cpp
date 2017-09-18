@@ -17,12 +17,13 @@ Person::Person (string n)
 {};
 
 void Person::showHand () {
-  Hands[active_hand].show();
+  if (!Hands.empty()) {
+    Hands[active_hand].show();
+  };
 };
 
 void Person::showHandValue () {
-  cout << Hands[active_hand].value()
-       << endl;
+  cout << Hands[active_hand].value();
 };
 
 void Person::addHand (Hand H) {
@@ -30,11 +31,17 @@ void Person::addHand (Hand H) {
 };
 
 void Person::addCard (Card C) {
+  if (Hands.empty()) {
+    Hand FirstHand;
+    Hands.push_back(FirstHand);
+  }
   Hands[active_hand].addCard(C);
 };
 
 void Person::clearHands() {
-  Hands.clear();
+  if (!Hands.empty()) {
+    Hands.clear();
+  }
 };
 
 void Person::nextHand() {

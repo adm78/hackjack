@@ -1,3 +1,8 @@
+// hackjack - the blackjack card counting simulator
+// Andrew D. McGuire 2017
+// amcguire227@gmail.com
+// Player class definition
+
 #ifndef PLAYER_H
 #define PLAYER_H
 

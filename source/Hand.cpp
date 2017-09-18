@@ -25,7 +25,6 @@ void Hand::show () {
   for (int i=0; i<Cards.size(); ++i)
     cout << Cards[i].value << Cards[i].suit
 	 << " ";
-  cout << endl;
 };
 
 int Hand::value () {
