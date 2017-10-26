@@ -19,12 +19,17 @@ Person::Person (string n)
 void Person::showHand () {
   if (!Hands.empty()) {
     Hands[active_hand].show();
+    cout << endl;
   };
 };
 
 void Person::showHandValue () {
   cout << Hands[active_hand].value();
 };
+
+int Person::handValue() {
+  return Hands[active_hand].value();
+}
 
 void Person::addHand (Hand H) {
   Hands.push_back(H);
@@ -45,7 +50,7 @@ void Person::clearHands() {
 };
 
 void Person::nextHand() {
-  //upates the active_hand
+  //upates the active_hand in a circular fashion
   if (active_hand >= Hands.size()-1) {
     active_hand = 0;
   }
@@ -57,6 +62,16 @@ void Person::nextHand() {
 int Person::getActiveHand() {
   return active_hand;
 }
+
+bool Person::hasMoreHands() {
+  // check if a person has more hands to process
+  if (active_hand > Hands.size()-1) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 
 bool Person::isBust() {
   if (Hands[active_hand].value() > 21) {

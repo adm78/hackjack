@@ -31,8 +31,10 @@ class Game {
   //methods
   Game(vector<Player> players, Dealer dealer, Deck deck);
   void show();
-  void deal();
+  void dealAll();
   void clearTable();
+  void hit_or_stick();
+  void dealTo(Player* p);
   
   //members
   vector<Player> players;

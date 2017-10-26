@@ -24,11 +24,13 @@ class Person {
   void addHand(Hand H);
   void showHand();
   void clearHands();
+  int  handValue();
   void showHandValue();
   bool isBust();
   void nextHand();
-  int getActiveHand();
-
+  int  getActiveHand();
+  bool hasMoreHands();
+  
   //attributes
   string name;
   vector<Hand> Hands;

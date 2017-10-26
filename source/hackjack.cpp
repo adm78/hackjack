@@ -86,6 +86,7 @@ int main() {
   Deck GameDeck(4);
   Game GameTest(players,Dealer,GameDeck);
   GameTest.show();
+  GameTest.hit_or_stick();
 
 
 

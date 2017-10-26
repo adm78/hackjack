@@ -9,7 +9,7 @@ LFLAGS =-Wall $(DEBUG)
 hackjack : $(OBJS)
 	$(CC) $(LFLAGS) $(OBJS) -o hackjack
 	
-Game.o : $(INC)/Deck.h $(SRC)/Deck.cpp $(INC)/Player.h $(INC)/Hand.h $(INC)/Card.h
+Game.o : $(INC)/Game.h $(SRC)/Game.cpp $(INC)/Deck.h $(SRC)/Deck.cpp $(INC)/Player.h $(INC)/Hand.h $(INC)/Card.h
 	$(CC) $(CXXFLAGS) $(SRC)/Game.cpp
 	
 Player.o : $(INC)/Player.h $(SRC)/Player.cpp $(INC)/Hand.h $(INC)/Card.h
