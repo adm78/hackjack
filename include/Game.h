@@ -35,6 +35,8 @@ class Game {
   void clearTable();
   void hit_or_stick();
   void dealTo(Player* p);
+  void dealTo (std::vector<Player>::iterator&);
+  bool isLastPlayer();
   
   //members
   vector<Player> players;
@@ -43,6 +45,7 @@ class Game {
  private:
   Deck deck;
   Player* cp;
+  void nextPlayer();
 };
 
 class ClassicBlackJack: public Game {

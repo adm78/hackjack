@@ -66,6 +66,10 @@ void Game::dealTo (Player* p) {
   p->addCard(deck.draw());
 };
 
+void Game::dealTo (std::vector<Player>::iterator& p) {
+  // deal a single cards player iterator ref
+  p->addCard(deck.draw());
+};
 
 void Game::hit_or_stick() {
   
@@ -74,26 +78,34 @@ void Game::hit_or_stick() {
   Card card;
   bool hands_to_process = true;
 
-  while (hands_to_process) {
+  // player loop
+  for (std::vector<Player>::iterator player = players.begin(); player != players.end(); ++player) {
 
-    // process the current hand
-    answer = 'h';
-    while (answer == 'h' and not (cp->isBust() or cp->handValue() == 21)) {
-      cout << cp->name << ", would you like to hit or stick? (h/s): ";
-      cin >> answer;
-      if (tolower(answer) == 'h') {
-	dealTo(cp);
-	cp->showHand();
-	if (cp->isBust()) {
-	  cout << "Whoops! " << cp->name << "'s bust on this hand";
-	  cout << endl;
+    cout << "current player name is " << player->name << endl;
+    // player hand loop
+    while (hands_to_process) {
+
+      // process the current hand
+      answer = 'h';
+      while (answer == 'h' and not (player->isBust() or player->handValue() == 21)) {
+	cout << player->name << ", would you like to hit or stick? (h/s): ";
+	cin >> answer;
+	if (tolower(answer) == 'h') {
+	  dealTo(player);
+	  player->showHand();
+	  if (player->isBust()) {
+	    cout << "Whoops! " << player->name << "'s bust on this hand";
+	    cout << endl;
+	  }
 	}
       }
-    }
+      
+      // move to the next hand (if any)
+      hands_to_process = player->hasMoreHands();
+      player->nextHand(); //will go back to first if it's the last Hand
 
-    // move to the next hand (if any)
-    hands_to_process = cp->hasMoreHands();
-    cp->nextHand(); //will go back to first if it's the last Hand
-    
-  }
-}
+    }
+    hands_to_process = true;      
+  };
+ 
+};
